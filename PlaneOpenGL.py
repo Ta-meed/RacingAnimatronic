@@ -9,6 +9,9 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 """
 Requires PyGame and PyOpenGL
+For the window to run there must be UDP data coming out aka you must be in a rally
+Window doesn't close on exit unless you click it then re-enter the game else 
+you must force stop with your IDE
 
 Code replicates the motion of the car with OpenGL for Dirt rally 1 & 2 given 
 that the UDP is turned on. It should theoretically work for all code master 
@@ -257,7 +260,7 @@ def main():
                 quit()
 
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
-        plane(v2, v1, pitch, height, True)
+        plane(v2, v1, pitch, height, False)  # Edit this to True if you want chase cam
         pygame.display.flip()
         pygame.time.wait(0)
 
